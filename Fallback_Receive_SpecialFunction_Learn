@@ -1,0 +1,22 @@
+// SPDX-License-Identifier : MIT
+
+pragma solidity 0.8.7;
+
+//User remix and call the calldata/transaction button under deployed contract.
+//It will call receive or fallback function of your contract even if user doesnot call any actual function from contract. User has capability to interact with smart contract 
+//without calling any function using calldata.(It is similar to send button of metamask-> user hjust need contract address even without knowing any actual function)
+
+contract FallbackTest
+{
+    uint public result;
+
+    receive() external payable
+    {
+        result = 1;
+    }
+
+    fallback() external payable
+    {
+        result = 2;
+    }
+}
